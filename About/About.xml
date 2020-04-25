@@ -5,7 +5,9 @@
   <supportedVersions>
     <li>1.1</li>
   </supportedVersions>
+  <url>https://github.com/toman222/ClaimDoors</url>
   <packageId>tobs.claimdoors</packageId>
+  <loadAfter><li>brrainz.harmony</li></loadAfter>
   <description>Un-Claim all doors on tile generation.</description>
   <modDependencies>
     <li>
