@@ -3,25 +3,16 @@ using RimWorld;
 using System.Linq;
 using Verse;
 
-namespace ClaimDoors
+namespace ClaimDoors.Patches
 {
-    [StaticConstructorOnStartup]
-    internal static class ClaimDoorsMain
+    [HarmonyPatch(typeof(MapGenerator), nameof(MapGenerator.GenerateMap))]
+    internal static class UnclaimAllDoorsOnGeneratedMap
     {
-        static ClaimDoorsMain()
+        private static void Postfix(Map __result)
         {
-            new Harmony("tobs.claimdoors.mod").PatchAll();
-        }
-
-        [HarmonyPatch(typeof(MapGenerator), nameof(MapGenerator.GenerateMap))]
-        internal static class MapParent_PostMapGenerate
-        {
-            private static void Postfix(Map __result)
-            {
-                var doors = __result.spawnedThings.Where(thing => thing is Building_Door && thing.Faction != Faction.OfPlayer);
-                foreach (var door in doors)
-                    door.SetFactionDirect(null);
-            }
+            var doors = __result.spawnedThings.Where(thing => thing is Building_Door && thing.Faction != Faction.OfPlayer).Cast<Building_Door>();
+            foreach (var door in doors)
+                door.SetFactionDirect(null);
         }
     }
 }
