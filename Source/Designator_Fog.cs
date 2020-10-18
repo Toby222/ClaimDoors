@@ -49,7 +49,6 @@ namespace ClaimDoors
 
         private void FogWorker(IntVec3 c)
         {
-            Log.Message($"{c} - {Map.cellIndices.CellToIndex(c)} - {Map.fogGrid.fogGrid[Map.cellIndices.CellToIndex(c)]}");
             int index = Map.cellIndices.CellToIndex(c);
             Map.fogGrid.fogGrid[index] = true;
             if (Current.ProgramState == ProgramState.Playing)
