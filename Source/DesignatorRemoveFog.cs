@@ -1,12 +1,14 @@
-﻿using RimWorld;
+﻿using JetBrains.Annotations;
+using RimWorld;
 using UnityEngine;
 using Verse;
 
 namespace ClaimDoors
 {
-    public class Designator_RemoveFog : Designator_Fog
+    public class DesignatorRemoveFog : DesignatorFog
     {
-        public Designator_RemoveFog() : base(DesignateMode.Remove)
+        [UsedImplicitly]
+        public DesignatorRemoveFog() : base(DesignateMode.Remove)
         {
             defaultLabel = "Unfog Map";
             defaultDesc = "Remove fog of war from the map.";

@@ -1,12 +1,14 @@
-﻿using RimWorld;
+﻿using JetBrains.Annotations;
+using RimWorld;
 using UnityEngine;
 using Verse;
 
 namespace ClaimDoors
 {
-    public class Designator_AddFog : Designator_Fog
+    public class DesignatorAddFog : DesignatorFog
     {
-        public Designator_AddFog() : base(DesignateMode.Add)
+        [UsedImplicitly]
+        public DesignatorAddFog() : base(DesignateMode.Add)
         {
             defaultLabel = "Fog Map";
             defaultDesc = "Cover the map with fog of war.";
