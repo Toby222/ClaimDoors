@@ -7,7 +7,8 @@ namespace ClaimDoors
     internal class ClaimDoorsMod : Mod
     {
         [UsedImplicitly]
-        public ClaimDoorsMod(ModContentPack content) : base(content)
+        public ClaimDoorsMod(ModContentPack content)
+            : base(content)
         {
             GetSettings<ClaimDoorsSettings>();
             new Harmony("dev.tobot.claimdoors").PatchAll();
@@ -21,8 +22,14 @@ namespace ClaimDoors
         {
             Listing_Standard listingStandard = new();
             listingStandard.Begin(inRect);
-            listingStandard.CheckboxLabeled("Enable Fog Tools", ref ClaimDoorsSettings.EnableFogTool);
-            listingStandard.CheckboxLabeled("Un-claim all doors on map generation (allowing anyone to pass through freely)", ref ClaimDoorsSettings.EnableDoorUnclaiming);
+            listingStandard.CheckboxLabeled(
+                "Enable Fog Tools",
+                ref ClaimDoorsSettings.EnableFogTool
+            );
+            listingStandard.CheckboxLabeled(
+                "Un-claim all doors on map generation (allowing anyone to pass through freely)",
+                ref ClaimDoorsSettings.EnableDoorUnclaiming
+            );
             listingStandard.End();
             base.DoSettingsWindowContents(inRect);
         }

@@ -8,7 +8,8 @@ namespace ClaimDoors
     public class DesignatorAddFog : DesignatorFog
     {
         [UsedImplicitly]
-        public DesignatorAddFog() : base(DesignateMode.Add)
+        public DesignatorAddFog()
+            : base(DesignateMode.Add)
         {
             defaultLabel = "Fog Map";
             defaultDesc = "Cover the map with fog of war.";
